@@ -17,4 +17,6 @@ https://bangpan-dicodingtask-firstanalysis.streamlit.app/
 ```
 
 ## screenshot
-![Uploading Screen Shot 2023-11-21 at 11.10.36 PM.png…]()
+```
+https://drive.google.com/file/d/1Yvkhfj3A0DoncsuV6jBSucqYuBjQaL9J/view?usp=sharing
+```
