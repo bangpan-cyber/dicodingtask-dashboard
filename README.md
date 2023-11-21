@@ -11,3 +11,10 @@ pip install pandas matplotlib seaborn jupyter streamlit pillow
 ```
 streamlit run dashboard.py
 ```
+## link dashboard
+```
+https://bangpan-dicodingtask-firstanalysis.streamlit.app/
+```
+
+## screenshot
+![Uploading Screen Shot 2023-11-21 at 11.10.36 PM.png…]()
