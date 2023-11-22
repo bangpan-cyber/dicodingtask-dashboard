@@ -18,5 +18,5 @@ https://bangpan-dicodingtask-firstanalysis.streamlit.app/
 
 ## screenshot
 ```
-https://drive.google.com/file/d/1Yvkhfj3A0DoncsuV6jBSucqYuBjQaL9J/view?usp=sharing
+https://drive.google.com/file/d/1nXEXH8FRn5Q7-av-PKlrK-3I4u41VzyM/view?usp=sharing
 ```
