@@ -14,11 +14,12 @@ with st.container():
     st.write("---")
     st.header("Berdasarkan data-data yang disediakan oleh e-commerce bernama Olist, saya mencoba untuk membuat analisa berdasarkan 2 pertanyaan bisnis.")
     st.write("##")
-    st.write(
+    if st.button("Informasi singkat tentang dataset"):
+        st.write(
             """
             Sebelumnya, secara singkat mengenai kumpulan data publik e-commerce Brasil untuk pesanan yang dibuat di Olist Store. Kumpulan data ini berisi informasi tentang 100 ribu pesanan dari tahun 2016 hingga 2018 yang dibuat di berbagai pasar di Brasil. Fiturnya memungkinkan melihat pesanan dari berbagai dimensi: mulai dari status pesanan, harga, kinerja pembayaran dan pengiriman, lokasi pelanggan, atribut produk, hingga ulasan yang ditulis oleh pelanggan. Mereka juga merilis kumpulan data geolokasi yang menghubungkan kode pos Brasil dengan koordinat lintang/bujur.
             """
-        )
+            )
     st.write(
             """
             Dan, berikut adalah dua pertanyaan bisnisnya:
@@ -27,7 +28,7 @@ with st.container():
             - "Kategori produk apa yang paling banyak dan yang paling sedikit terjual?
             """
     )
-    
+
 with st.container():
     st.write("---")
     st.header('Trend in Order Volume over Time')
@@ -38,18 +39,18 @@ with st.container():
     with text_column:
         st.write(
             """
-            Pertanyaan pertama, saya buat dua analisa. Yang dilakukan dalam analisa ini adalah:
-            - Pertama, mengatur indeks data waktu dan resample per bulan. Lalu, plot grafik tren jumlah pesanan dari waktu ke waktu.
-            - Dan berikut adalah potongan kodenya.
-           """
+            - Berikut adalah potongan kodenya.
+            """
         )
-        code = """# Analisis Tren Jumlah Pesanan dari Waktu ke Waktu
+        if st.button("Klik untuk tampilkan kode analisa tren"):
+            code = """# Analisis Tren Jumlah Pesanan dari Waktu ke Waktu
 orders_by_date = orders.set_index('order_purchase_timestamp').resample('M').size()
 orders_by_date.plot(title='Trend in Order Volume over Time', color='cadetblue')
 plt.xlabel(' ')
 plt.ylabel('Order Volume')
-plt.show()"""
-        st.code(code, language='python')
+plt.show()"""       
+            st.code(code, language='python')
+        
         
 with st.container():
     st.write("##")
@@ -83,21 +84,20 @@ with st.container():
     with txt_column:
         st.write(
             """
-            Yang dilakukan dalam analisa ini adalah:
-            - Hitung jumlah pesanan berdasarkan statusnya dan visualisasikan dalam bentuk grafik batang.
             Dengan melihat analisa laporan status order, bisa diambil kesimpulan:
             - Distribusi status pesanan menunjukkan mayoritas pesanan dalam kondisi "delivered" atau "shipped," yang menandakan bahwa sebagian besar pesanan berhasil dikirim.
-           """
+            """
         )
 
 with st.container():
     st.write("##")
     st.write(
         """
-        - Berikut potongan kode yang saya gunakan:
+        - Berikut potongan kodenya:
         """
     )
-code2 = """# membaca file dataset
+if st.button("Klik untuk tampilkan kode analisa report status order"):
+    code2 = """# membaca file dataset
 orders = pd.read_csv('olist_order_df.csv')
 
 # Analisis Distribusi Status Pesanan
@@ -111,7 +111,7 @@ ax.set_ylabel('Number of Orders', fontsize=35)
 ax.tick_params(axis='x', rotation=25, labelsize=25)
 ax.tick_params(axis='y', labelsize=25)
 st.pyplot(fig)"""
-st.code(code2, language='python')
+    st.code(code2, language='python')
 
 with st.container():
     st.write("---")
@@ -141,14 +141,7 @@ ax[1].tick_params(axis='x', labelsize=30)
 st.pyplot(fig)
 
 st.write(
-            """
-            Yang dilakukan dalam analisa ini adalah:
-            - Gabung dua dataset, order_items dan products, berdasarkan kolom 'product_id'. Lalu pakai metode 'inner' untuk ambil baris yang ada di kedua dataset.
-            - Grouping data berdasarkan kategori produk, lalu hitung jumlah pesanan (order_item_id) untuk tiap kategori.
-            - Merge data penjualan kategori dengan translasi nama kategori, agar nama kategori lebih jelas dibaca.
-            - Sorting data penjualan kategori dari yang tertinggi ke terendah, berdasarkan jumlah pesanan.
-            - Ambil 5 kategori produk terbaik dan terburuk dalam penjualan, berdasarkan jumlah pesanan. Lalu gabungkan untuk digunakan dalam satu plot.
-
+            """           
             Kesimpulan dari analisa kategori produk yang paling banyak dan yang paling sedikit terjual adalah sebagai berikut.
             1. Kategori produk paling banyak terjual:
             Dari visualisasi data, kita dapat melihat kategori produk dengan penjualan terbanyak. Melalui bar chart, kita dapat mengidentifikasi kategori produk yang mendominasi dalam jumlah penjualan, yaitu kategori produk 'bed_bath_table'.
@@ -160,10 +153,11 @@ with st.container():
     st.write("##")
     st.write(
         """
-        - Berikut potongan kode yang saya gunakan:
+        - Berikut potongan kodenya:
         """
     )
-code3 = """# baca dataset
+if st.button("Klik untuk tampilkan kode analisa kategori produk terbaik & terburuk"):
+    code3 = """# baca dataset
 combined_data = pd.read_csv('olist_sales_df.csv')
 
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(37, 17))
@@ -185,5 +179,5 @@ ax[1].set_title('Worst performing product category', loc='center', fontsize=40)
 ax[1].tick_params(axis='y', labelsize=35)
 ax[1].tick_params(axis='x', labelsize=30)
 st.pyplot(fig)"""
-st.code(code3, language='python')
+    st.code(code3, language='python')
 st.caption('Copyright (c) Dicoding 2023')
