@@ -17,4 +17,5 @@ https://bangpan-dicodingtask-firstanalysis.streamlit.app/
 ```
 
 ## screenshot
-![Screen Shot 2023-11-22 at 10 33 07 PM](https://github.com/bangpan-cyber/dicodingtask-dashboard/assets/83298097/c8bf9c14-39e9-4ffd-bdf7-751243cba9b9)
+![Screen Shot 2023-11-23 at 6 46 12 AM](https://github.com/bangpan-cyber/dicodingtask-dashboard/assets/83298097/33a2dd43-da34-45f6-9524-4600b3639b71)
+
